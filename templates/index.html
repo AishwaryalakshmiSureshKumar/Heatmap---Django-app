@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block scripts %}
+<script>
+  $(function(){
+    $("#environmentId").change(function(){
+      localStorage.setItem("environment", 0);
+      var environment = $("#check1").val();
+      localStorage.setItem("environment", environment);
+    })
+  })
+  $(function(){
+    $("#countryId").change(function(){
+      localStorage.setItem("country", 0);
+      var country = $("#check2").val();
+      localStorage.setItem("country", country);
+    })
+  }) 
+</script>
+{% endblock scripts %}
+
+{% block content %}
+
+<h1><b>HeatMap Inputs</b></h1>
+
+
+<form class="form1" action="chartinput" method="POST">{% csrf_token %} 
+  <div class="check1" id="check1" name="check1">
+    <input type="checkbox" id="Preprod" name="environment" value="Preprod">
+    <label for="Preprod">Preprod</label>
+    <input type="checkbox" id="Prod" name="environment" value="Prod">
+    <label for="Prod">Prod</label>
+  </div>
+  <br>
+  <br>
+  <!--<div class="custom-select" style="width: 300px;">
+    <select id="environmentId" name="dropdown1">
+      <option value="0" disabled="True" selected>Environment: </option>
+      <option value="Preprod">Preprod</option>
+      <option value="Prod">Prod</option>
+    </select>
+  </div>-->
+  <!--<div class="custom-select" style="width: 300px;">-->
+  <div class="check2" id="check2" name="check2">
+    <input type="checkbox" id="AT" name="country" value="AT">
+    <label for="AT">AT</label>
+    <input type="checkbox" id="BE" name="country" value="BE">
+    <label for="BE">BE</label>
+    <input type="checkbox" id="CH" name="country" value="CH">
+    <label for="CH">CH</label>
+    <input type="checkbox" id="IE" name="country" value="IE">
+    <label for="IE">IE</label>
+    <input type="checkbox" id="NL" name="country" value="NL">
+    <label for="NL">NL</label>
+    <input type="checkbox" id="PL" name="country" value="PL">
+    <label for="PL">PL</label>
+    <input type="checkbox" id="UK" name="country" value="UK">
+    <label for="UK">UK</label>
+  </div>
+    <!--<select id="countryId" name="dropdown2">
+      <option value="0" disabled="True" selected>Country: </option>
+      <option value="AT">AT</option>
+      <option value="BE">BE</option>
+      <option value="CH">CH</option>
+      <option value="IE">IE</option>
+      <option value="NL">NL</option>
+      <option value="PL">PL</option>
+      <option value="UK">UK</option>
+    </select>
+  </div>-->
+
+    <button id="submitbutton" class="btn btn-success">Submit</button>
+</form>
+
+{% endblock content %}

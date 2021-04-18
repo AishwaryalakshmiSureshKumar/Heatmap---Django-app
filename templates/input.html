@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block scripts %}
+<script>
+
+$(document).ready(function(){
+    var coun = localStorage.getItem("country");
+    var env = localStorage.getItem("environment");
+    
+    var display = coun +' '+ env;
+
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: [{% for input in inputField %} '{{input.component}}',{% endfor %}],
+            datasets: [{
+                label: display,
+                data: [{% for input in inputField %}{{input.total}},{% endfor %}],
+                backgroundColor: [
+                    'rgba(65,105,225 ,1 )',
+                    'rgba(65,105,225 ,1 )',
+                    'rgba(65,105,225 ,1 )',
+                    'rgba(65,105,225 ,1 )',
+                    'rgba(65,105,225 ,1 )',
+                    'rgba(65,105,225 ,1 )',
+                    'rgba(65,105,225 ,1 )',
+                    'rgba(65,105,225 ,1 )',
+                    'rgba(65,105,225 ,1 )',
+                    'rgba(65,105,225 ,1 )'
+                    
+                ],
+                borderColor: [
+                    'rgba(65,105,225 ,1 )',
+                    'rgba(65,105,225 ,1 )',
+                    'rgba(65,105,225 ,1 )',
+                    'rgba(65,105,225 ,1 )',
+                    'rgba(65,105,225 ,1 )',
+                    'rgba(65,105,225 ,1 )',
+                    'rgba(65,105,225 ,1 )',
+                    'rgba(65,105,225 ,1 )',
+                    'rgba(65,105,225 ,1 )',
+                    'rgba(65,105,225 ,1 )'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+    
+})
+
+
+</script>
+<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+{% endblock scripts %}
+
+
+{% block content %}
+<div class="form2">
+    <a href="{% url 'export_users_csv' %}">Export CSV</a>
+</div>
+<table style="width:50%;">
+    <tr>
+        <th>Country</th>
+        <th>Environment</th>
+        <th>Component Tasks</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th>Total time taken</th>
+    </tr>
+
+    {% for input in inputField %}
+        <tr>
+            <td>{{input.country}}</td>
+            <td>{{input.environment}}</td>
+            <td>{{input.component}}</td>
+            <td>{{input.start}}</td>
+            <td>{{input.end}}</td>
+            <td>{{input.total}}</td>
+         </tr>
+    {% endfor %}
+</table>
+<canvas id="myChart" name="myChart" width="500" height="100"></canvas>
+{% endblock %}

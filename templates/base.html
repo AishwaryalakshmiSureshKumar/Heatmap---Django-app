@@ -1,0 +1,109 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HeatMap</title>
+    <link rel="stylesheet" type='text/css' href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/semantic.min.css">
+    <!--Chart js-->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" integrity="sha256-Uv9BNBucvCPipKQ2NS9wYpJmi8DTOEfTA/nH2aoJALw=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css" integrity="sha256-aa0xaJgmK/X74WM224KMQeNQC2xYKwlAt08oZqjeF0E=" crossorigin="anonymous" />
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+    <style>
+
+        body{
+            background-color:white;
+            margin: 0;
+            padding: 0;
+            
+        }
+
+        h1{
+            margin-left:525px;
+            height: 20px;
+            color: royalblue;
+            padding-top: 20px;
+        }
+
+        .form1{
+            margin-left: 350px;
+            margin-top: 100px;
+        }
+
+        .check1{
+            margin-left: 250px;
+        }
+
+        .check2{
+            margin-left: 190px;
+        }
+        .custom-select{
+            color: white;
+            display: inline-block;
+        }
+
+        #environmentId, #countryId{
+            width: 300px;
+            height: 35px;
+            border: 6px solid transparent;
+            background-color: dodgerblue;
+        }
+
+        .btn{
+            margin-left: 60px;
+            margin-top: 60px;
+            width: 500px;
+        }
+
+        table, th, td{
+            border: 1px solid black;
+            margin-top: 50px;
+            margin-left: 350px;
+            margin-bottom: 100px;
+        }
+
+        th {
+            background-color: royalblue;
+            color: white;
+          }
+
+        th, td{
+            padding: 10px;
+            
+        }
+
+        tr:nth-child(odd) {background-color: #f2f2f2;}
+
+        #mychart{
+            margin-left:350px;
+        }
+
+        .form2{
+            margin-top: 20px;
+            margin-left: 85%;
+        }
+        
+    </style>
+</head>
+<body>
+
+    {% block scripts %}
+    {% endblock scripts %}
+
+    {% block content %}
+    {% endblock %}
+    
+</body>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+</html>
